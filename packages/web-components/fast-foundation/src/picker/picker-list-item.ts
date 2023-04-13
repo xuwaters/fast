@@ -28,6 +28,17 @@ export class FASTPickerListItem extends FASTElement {
     public value: string;
 
     /**
+     * Disables the picker-list-item.
+     *
+     * @public
+     * @remarks
+     * HTML Attribute: disabled
+     */
+    @attr({ attribute: "disabled", mode: "boolean" })
+    public disabled: boolean;
+    protected disabledChanged(): void {}
+
+    /**
      *  The template used to render the contents of the list item
      *
      */
@@ -58,7 +69,7 @@ export class FASTPickerListItem extends FASTElement {
     }
 
     public handleKeyDown(e: KeyboardEvent): boolean {
-        if (e.defaultPrevented) {
+        if (e.defaultPrevented || this.disabled) {
             return false;
         }
 
@@ -71,7 +82,7 @@ export class FASTPickerListItem extends FASTElement {
     }
 
     public handleClick(e: MouseEvent): boolean {
-        if (!e.defaultPrevented) {
+        if (!e.defaultPrevented || !this.disabled) {
             this.handleInvoke();
         }
         return false;
