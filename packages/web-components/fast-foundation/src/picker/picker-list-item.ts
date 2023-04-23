@@ -70,7 +70,7 @@ export class FASTPickerListItem extends FASTElement {
 
     public handleKeyDown(e: KeyboardEvent): boolean {
         if (e.defaultPrevented || this.disabled) {
-            return false;
+            return true;
         }
 
         if (e.key === keyEnter) {
@@ -81,11 +81,11 @@ export class FASTPickerListItem extends FASTElement {
         return true;
     }
 
-    public handleClick(e: MouseEvent): boolean {
-        if (!e.defaultPrevented || !this.disabled) {
-            this.handleInvoke();
+    public handleClick(e: MouseEvent): void {
+        if (e.defaultPrevented || this.disabled) {
+            return;
         }
-        return false;
+        this.handleInvoke();
     }
 
     private handleInvoke(): void {

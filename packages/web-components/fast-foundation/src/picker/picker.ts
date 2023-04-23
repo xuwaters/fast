@@ -43,6 +43,7 @@ const pickerInputTemplate: ViewTemplate = html<FASTPicker>`
         slot="input-region"
         role="combobox"
         type="text"
+        ?disabled=${x => x.disabled}
         autocapitalize="off"
         autocomplete="off"
         haspopup="list"

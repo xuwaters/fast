@@ -1517,6 +1517,10 @@ export class FASTPicker extends FormAssociatedPicker {
     defaultMenuOptionTemplate?: ViewTemplate;
     // (undocumented)
     protected defaultMenuOptionTemplateChanged(): void;
+    // @public
+    disabled: boolean;
+    // (undocumented)
+    disabledChanged(previous: boolean, next: boolean): void;
     // (undocumented)
     disconnectedCallback(): void;
     // @internal
@@ -1607,6 +1611,10 @@ export class FASTPickerListItem extends FASTElement {
     contentsTemplate: ViewTemplate;
     // (undocumented)
     protected contentsTemplateChanged(): void;
+    // @public
+    disabled: boolean;
+    // (undocumented)
+    protected disabledChanged(): void;
     // @internal (undocumented)
     disconnectedCallback(): void;
     // (undocumented)
