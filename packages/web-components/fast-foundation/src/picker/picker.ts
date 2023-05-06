@@ -9,6 +9,7 @@ import {
     Updates,
     ViewTemplate,
 } from "@microsoft/fast-element";
+import { Container, inject } from "@microsoft/fast-element/di";
 import { ViewBehaviorOrchestrator } from "@microsoft/fast-element/utilities";
 import {
     keyArrowDown,
@@ -37,6 +38,7 @@ import { FASTPickerMenuOption } from "./picker-menu-option.js";
 import type { FASTPickerMenu } from "./picker-menu.js";
 import { FormAssociatedPicker } from "./picker.form-associated.js";
 import { MenuPlacement } from "./picker.options.js";
+import { PickerContext } from "./picker-context.js";
 
 const pickerInputTemplate: ViewTemplate = html<FASTPicker>`
     <input
@@ -61,6 +63,9 @@ const pickerInputTemplate: ViewTemplate = html<FASTPicker>`
  * @beta
  */
 export class FASTPicker extends FormAssociatedPicker {
+    @inject(PickerContext) pickerContext!: PickerContext;
+    @Container container!: Container;
+
     /**
      * Currently selected items. Comma delineated string ie. "apples,oranges".
      *
@@ -158,6 +163,8 @@ export class FASTPicker extends FormAssociatedPicker {
     @attr({ mode: "boolean" })
     public disabled: boolean;
     public disabledChanged(previous: boolean, next: boolean): void {
+        this.pickerContext.disabled = this.disabled;
+
         if (super.disabledChanged) {
             super.disabledChanged(previous, next);
         }
@@ -454,7 +461,7 @@ export class FASTPicker extends FormAssociatedPicker {
     public region: FASTAnchoredRegion;
 
     /**
-     *
+     * Currently selected items (string)
      *
      * @internal
      */
