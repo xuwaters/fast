@@ -6,7 +6,6 @@ import {
     observable,
     ViewTemplate,
 } from "@microsoft/fast-element";
-import { inject } from "@microsoft/fast-element/di";
 import { keyEnter } from "@microsoft/fast-web-utilities";
 import { PickerContext } from "./picker-context.js";
 
@@ -20,7 +19,8 @@ const defaultContentsTemplate: ViewTemplate<FASTPickerListItem> = html`
  * @beta
  */
 export class FASTPickerListItem extends FASTElement {
-    @inject(PickerContext) pickerContext!: PickerContext;
+    @PickerContext
+    pickerContext: PickerContext;
 
     /**
      * The underlying string value of the item
