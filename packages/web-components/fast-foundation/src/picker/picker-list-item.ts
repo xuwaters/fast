@@ -19,6 +19,10 @@ const defaultContentsTemplate: ViewTemplate<FASTPickerListItem> = html`
  * @beta
  */
 export class FASTPickerListItem extends FASTElement {
+    /**
+     * Context object for the parent picker
+     *
+     */
     @PickerContext
     pickerContext: PickerContext;
 
