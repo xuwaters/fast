@@ -228,7 +228,6 @@ export class FASTTextField extends TextField {}
 | `menuOptionTemplateChanged`        | protected |                                                               |                    | `void`    |                |
 | `defaultMenuOptionTemplateChanged` | protected |                                                               |                    | `void`    |                |
 | `queryChanged`                     | protected |                                                               |                    | `void`    |                |
-| `filteredOptionsListChanged`       | protected |                                                               |                    | `void`    |                |
 | `flyoutOpenChanged`                | protected |                                                               |                    | `void`    |                |
 | `focus`                            | public    | Move focus to the input element                               |                    |           |                |
 | `handleKeyDown`                    | public    | Handle key down events.                                       | `e: KeyboardEvent` | `boolean` |                |
@@ -246,7 +245,7 @@ export class FASTTextField extends TextField {}
 | `selection`                  | selection                |                |
 | `options`                    | options                  |                |
 | `filter-selected`            | filterSelected           |                |
-| `filter-query`               | filterQuery              |                |
+| `query-filter-disabled`      | queryFilterDisabled      |                |
 | `max-selected`               | maxSelected              |                |
 | `no-suggestions-text`        | noSuggestionsText        |                |
 | `suggestions-available-text` | suggestionsAvailableText |                |
@@ -257,5 +256,3 @@ export class FASTTextField extends TextField {}
 | `menu-placement`             | menuPlacement            |                |
 
 <hr/>
-
-
