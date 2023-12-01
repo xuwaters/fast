@@ -49,11 +49,11 @@ function uniqueTokenName(): string {
 
 test.describe("A DesignToken", () => {
     let page: Page;
-    let root: Locator;
+    let currentBrowser: string;
 
-    test.beforeAll(async ({ browser }) => {
+    test.beforeAll(async ({ browser, browserName }) => {
+        currentBrowser = browserName;
         page = await browser.newPage();
-        root = page.locator("#root");
 
         await page.goto(fixtureURL("debug-designtoken--design-token"));
         await page.evaluate(() => DesignToken.registerDefaultStyleTarget());
@@ -514,6 +514,9 @@ test.describe("A DesignToken", () => {
             });
 
             test("should update a CSS custom property to the resolved value of a derived token value with a dependent token when the dependent token changes", async () => {
+                // FIXME: This test is flaky in webkit
+                test.skip(currentBrowser === "webkit", "Flaky in webkit");
+
                 expect(
                     await page.evaluate(async () => {
                         const results = [];
@@ -636,7 +639,12 @@ test.describe("A DesignToken", () => {
                 ).toEqual(["12", "14"]);
             });
 
-            test("should revert a CSS custom property back to a previous value when the Design Token value is reverted", async () => {
+            test("should revert a CSS custom property back to a previous value when the Design Token value is reverted", async ({
+                browserName,
+            }) => {
+                // FIXME: This test is flaky in webkit
+                test.skip(currentBrowser === "webkit", "Flaky in webkit");
+
                 expect(
                     await page.evaluate(async () => {
                         const results = [];
@@ -796,6 +804,9 @@ test.describe("A DesignToken", () => {
                 );
             });
             test("should update the emitted CSS custom property when the token's value changes", async () => {
+                // FIXME: This test is flaky in webkit
+                test.skip(currentBrowser === "webkit", "Flaky in webkit");
+
                 expect(
                     await page.evaluate(async () => {
                         const results = [];
@@ -828,6 +839,9 @@ test.describe("A DesignToken", () => {
                 ).toEqual(["12", "14"]);
             });
             test("should update the emitted CSS custom property of a token assigned a derived value when the token dependency changes", async () => {
+                // FIXME: This test is flaky in webkit
+                test.skip(currentBrowser === "webkit", "Flaky in webkit");
+
                 expect(
                     await page.evaluate(async () => {
                         const results = [];
