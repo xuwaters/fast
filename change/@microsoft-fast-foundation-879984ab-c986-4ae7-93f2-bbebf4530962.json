@@ -1,7 +1,7 @@
 {
   "type": "prerelease",
-  "comment": "fix: toolbar should not throw if start or end is undefined",
+  "comment": "fix: allow tabs `setTabs` method to be extended",
   "packageName": "@microsoft/fast-foundation",
-  "email": "chhol@microsoft.com",
+  "email": "quic_scomeau@qualcomm.com",
   "dependentChangeType": "prerelease"
 }

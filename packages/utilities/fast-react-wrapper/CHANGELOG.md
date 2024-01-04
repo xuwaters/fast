@@ -1,8 +1,25 @@
 # Change Log - @microsoft/fast-react-wrapper
 
-This log was last generated on Fri, 16 Jun 2023 18:17:13 GMT and should not be manually modified.
+This log was last generated on Fri, 18 Aug 2023 00:04:39 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.0.0-alpha.27
+
+Fri, 18 Aug 2023 00:04:39 GMT
+
+### Changes
+
+- Bump @microsoft/fast-element to v2.0.0-beta.26
+
+## 1.0.0-alpha.26
+
+Sat, 12 Aug 2023 00:26:35 GMT
+
+### Changes
+
+- add displayName to react wrapper (chhol@microsoft.com)
+- Bump @microsoft/fast-element to v2.0.0-beta.25
 
 ## 1.0.0-alpha.25
 

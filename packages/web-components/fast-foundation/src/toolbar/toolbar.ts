@@ -121,8 +121,10 @@ export class FASTToolbar extends FASTElement {
      *
      * @internal
      */
-    public clickHandler(e: MouseEvent): boolean | void {
-        const activeIndex = this.focusableElements?.indexOf(e.target as HTMLElement);
+    public mouseDownHandler(e: MouseEvent): boolean | void {
+        const activeIndex = this.focusableElements?.findIndex(x =>
+            x.contains(e.target as HTMLElement)
+        );
         if (activeIndex > -1 && this.activeIndex !== activeIndex) {
             this.setFocusedElement(activeIndex);
         }
